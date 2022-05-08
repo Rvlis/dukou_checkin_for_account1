@@ -1,0 +1,33 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: dukou_checkin_for_account1
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '45 6 * * *'
+
+jobs:
+  dukou_checkin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set Dart
+        uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+
+      - name: Dukou checkin
+        env:
+          EMAIL_KEY: ${{ secrets.EMAIL_KEY }}
+          PASSWD_KEY: ${{ secrets.PASSWD_KEY }}
+          SERVER_KEY: ${{ secrets.SERVER_KEY }}
+        run: |
+          dart pub get
+          dart bin/dukou_chekin.dart
