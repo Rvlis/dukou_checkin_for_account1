@@ -14,7 +14,7 @@ __Forked from [dukou_checkin](https://github.com/lycstar/dukou_checkin)__
     - PASSWD_KEY (密码,必填)
     - SERVER_KEY ([server 酱](https://sct.ftqq.com/sendkey) key，用于将脚本结果发送 server 酱通知；选填)
 
-3. 修改 .github/workflows 定时策略 cron
+3. 修改 .github/workflows 定时策略 cron __(使用UTC)__
 
    参考 github action 文档 [CRON](https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#scheduled-events)
     
